@@ -1,111 +1,138 @@
-# 📚 Caderno Temático com NotebookLM: FastAPI para Desenvolvimento de APIs Modernas
+# 📚 Caderno Temático com NotebookLM
 
-## 🎯 Contexto e Objetivos
+## FastAPI na Prática: Construindo APIs Assíncronas com Python
 
-O objetivo deste estudo foi utilizar o NotebookLM como ferramenta de aprendizado ativo para aprofundar conhecimentos sobre FastAPI, framework moderno para desenvolvimento de APIs em Python.
+## Sobre o Projeto
 
-### Objetivos Específicos
+Durante meus estudos de desenvolvimento backend, desenvolvi uma API bancária utilizando FastAPI, PostgreSQL e SQLAlchemy. Enquanto construía o projeto, percebi que precisava consultar constantemente documentações, exemplos e conceitos relacionados a programação assíncrona, validação de dados e arquitetura de APIs REST.
 
-* Compreender a arquitetura do FastAPI.
-* Aprender conceitos de APIs REST.
-* Entender validação de dados com Pydantic.
-* Utilizar operações assíncronas.
-* Aplicar boas práticas de desenvolvimento backend.
+Para organizar esse conhecimento, utilizei o NotebookLM como ferramenta de apoio aos estudos, centralizando documentações e realizando perguntas direcionadas aos problemas que surgiram durante o desenvolvimento.
+
+O objetivo deste caderno é registrar o processo de aprendizado e consolidar os principais conceitos estudados.
 
 ---
 
-# 📖 Curadoria de Fontes
+# 🎯 Objetivos de Estudo
 
-As seguintes fontes foram utilizadas e adicionadas ao NotebookLM:
+Ao iniciar este estudo, defini os seguintes objetivos:
 
-### 1. Documentação Oficial FastAPI
+* Entender como o FastAPI processa requisições assíncronas.
+* Aprender a utilizar o SQLAlchemy Async.
+* Compreender o papel do Pydantic na validação de dados.
+* Explorar boas práticas para construção de APIs REST.
+* Organizar um material de consulta para projetos futuros.
 
-https://fastapi.tiangolo.com/
+---
 
-### 2. Documentação Pydantic
+# 📖 Fontes Utilizadas
 
-https://docs.pydantic.dev/
+As fontes abaixo foram adicionadas ao NotebookLM para servir como base das consultas realizadas.
 
-### 3. Python AsyncIO
+### FastAPI Official Documentation
+
+https://fastapi.tiangolo.com
+
+Documentação principal do framework.
+
+### Pydantic Documentation
+
+https://docs.pydantic.dev
+
+Utilizada para compreender modelos e validações.
+
+### SQLAlchemy Documentation
+
+https://docs.sqlalchemy.org
+
+Referência para integração com banco de dados.
+
+### Python AsyncIO Documentation
 
 https://docs.python.org/3/library/asyncio.html
 
-### 4. SQLAlchemy 2.0
+Base para estudo de programação assíncrona.
 
-https://docs.sqlalchemy.org/
+### PostgreSQL Documentation
 
-### 5. REST API Tutorial
+https://www.postgresql.org/docs/
 
-https://restfulapi.net/
+Utilizada para consultas relacionadas ao banco de dados.
 
 ---
 
-# 🤖 Engenharia de Prompts e Cicatrizes
+# 🤖 Engenharia de Prompts
+
+Uma das partes mais interessantes do processo foi perceber que a qualidade das respostas dependia diretamente da qualidade das perguntas.
 
 ## Prompt 1
 
-**Pergunta**
+### Pergunta
 
-> Explique a arquitetura do FastAPI para um desenvolvedor iniciante.
+Como funciona o async/await dentro do FastAPI e por que ele melhora a performance da aplicação?
 
 ### Resultado
 
-Foi gerado um resumo sobre rotas, modelos de dados, validação automática e documentação integrada.
+O NotebookLM explicou o funcionamento do loop de eventos e como operações de I/O podem ser executadas sem bloquear outras requisições.
 
-### Dificuldade
+### Aprendizado
 
-A resposta inicial estava muito superficial.
-
-### Ajuste realizado
-
-> Explique a arquitetura do FastAPI apresentando exemplos práticos de uso em projetos reais.
+Entendi que utilizar async não deixa o código "mais rápido", mas permite que a aplicação atenda mais requisições simultaneamente.
 
 ---
 
 ## Prompt 2
 
-**Pergunta**
+### Pergunta
 
-> Compare FastAPI com Flask e Django Rest Framework.
+Qual a diferença prática entre Session e AsyncSession no SQLAlchemy?
 
 ### Resultado
 
-Foi criada uma tabela comparativa entre desempenho, facilidade de uso e escalabilidade.
+Recebi uma explicação detalhada sobre o funcionamento de ambas e exemplos de uso.
 
-### Dificuldade
+### Dificuldade Encontrada
 
-A IA apresentou informações muito genéricas.
+Inicialmente a resposta ficou muito teórica.
 
-### Ajuste realizado
+### Ajuste Realizado
 
-> Compare FastAPI, Flask e Django Rest Framework considerando performance, produtividade e aplicações empresariais.
+Reformulei para:
+
+"Explique Session e AsyncSession considerando uma API FastAPI conectada ao PostgreSQL."
+
+A resposta ficou muito mais próxima da minha realidade.
 
 ---
 
 ## Prompt 3
 
-**Pergunta**
+### Pergunta
 
-> Gere um roadmap de aprendizado para FastAPI.
+Quais erros são mais comuns ao utilizar SQLAlchemy assíncrono?
 
 ### Resultado
 
-Foi criado um plano dividido em etapas:
+Foram apresentados problemas relacionados ao gerenciamento de conexões, await ausente e sessões abertas incorretamente.
 
-1. Conceitos REST
-2. Rotas
-3. Pydantic
-4. Banco de Dados
-5. Autenticação
-6. Deploy
+### Aplicação Prática
 
-### Dificuldade
+Consegui identificar erros semelhantes que aconteceram durante o desenvolvimento da API bancária.
 
-O roadmap não possuía estimativas de tempo.
+---
 
-### Ajuste realizado
+## Prompt 4
 
-> Gere um roadmap de FastAPI com duração estimada para cada etapa.
+### Pergunta
+
+Analise esta arquitetura e sugira melhorias para escalabilidade.
+
+### Resultado
+
+Recebi sugestões sobre separação de camadas, organização dos schemas e reutilização de dependências.
+
+### Observação
+
+Esse foi um dos usos mais úteis do NotebookLM, pois as respostas estavam diretamente relacionadas às fontes carregadas.
 
 ---
 
@@ -113,96 +140,116 @@ O roadmap não possuía estimativas de tempo.
 
 ## O que é FastAPI?
 
-FastAPI é um framework moderno para construção de APIs REST utilizando Python.
+FastAPI é um framework moderno para desenvolvimento de APIs utilizando Python e tipagem estática.
 
-Principais características:
+Principais vantagens:
 
 * Alta performance
-* Tipagem forte
 * Documentação automática
-* Suporte nativo a Async/Await
-* Integração com Pydantic
+* Validação de dados integrada
+* Suporte nativo a operações assíncronas
+* Facilidade de manutenção
 
 ---
 
-## Estrutura Básica
-
-```python
-from fastapi import FastAPI
-
-app = FastAPI()
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-```
-
----
-
-## Conceitos Fundamentais
+## Conceitos Mais Importantes
 
 ### Rotas
 
-Endpoints responsáveis por receber requisições.
+São os endpoints responsáveis por receber requisições HTTP.
+
+Exemplo:
+
+```python
+@app.get("/accounts")
+async def list_accounts():
+    return []
+```
 
 ### Pydantic
 
-Biblioteca para validação automática de dados.
+Responsável pela validação dos dados recebidos e enviados pela API.
 
-### Dependency Injection
+Exemplo:
 
-Sistema de injeção de dependências integrado.
+```python
+class UserCreate(BaseModel):
+    name: str
+    email: str
+```
 
 ### Async/Await
 
-Permite operações não bloqueantes.
+Permite que operações de banco de dados e serviços externos não bloqueiem outras requisições.
 
-### OpenAPI
+### Dependency Injection
 
-Geração automática da documentação da API.
+Facilita a reutilização de componentes como autenticação e conexão com banco.
 
 ---
 
 # 📚 Glossário
 
-| Conceito | Definição                          |
-| -------- | ---------------------------------- |
-| API REST | Interface baseada em recursos HTTP |
-| Endpoint | URL acessível pela aplicação       |
-| Pydantic | Biblioteca de validação de dados   |
-| Async    | Execução assíncrona                |
-| OpenAPI  | Padrão para documentação de APIs   |
-| ORM      | Mapeamento Objeto Relacional       |
-| JWT      | Token para autenticação            |
+## API REST
+
+Arquitetura baseada em recursos acessados através do protocolo HTTP.
+
+## Endpoint
+
+URL disponibilizada pela API.
+
+## Pydantic
+
+Biblioteca utilizada para validação de dados.
+
+## AsyncIO
+
+Biblioteca nativa do Python para programação assíncrona.
+
+## ORM
+
+Ferramenta que permite trabalhar com banco de dados utilizando objetos Python.
+
+## SQLAlchemy
+
+ORM utilizado para comunicação com o PostgreSQL.
+
+## JWT
+
+Método amplamente utilizado para autenticação baseada em tokens.
 
 ---
 
 # 🚀 Prompts Reutilizáveis
 
-### Para Resumos
+Durante os estudos, alguns prompts produziram resultados muito úteis e podem ser reutilizados futuramente.
 
-> Resuma este conteúdo destacando os conceitos principais e exemplos práticos.
+### Revisão Técnica
 
-### Para Revisão
+Explique este conceito considerando uma aplicação FastAPI em produção.
 
-> Crie um resumo em formato de revisão rápida para entrevista técnica.
+### Resolução de Problemas
 
-### Para Exercícios
+Quais erros comuns podem ocorrer neste cenário e como evitá-los?
 
-> Gere 10 questões de nível intermediário sobre FastAPI.
+### Arquitetura
 
-### Para Roadmaps
+Analise esta estrutura de projeto e sugira melhorias seguindo boas práticas.
 
-> Crie um plano de estudos de 30 dias para aprender FastAPI.
+### Banco de Dados
 
-### Para Projetos
+Explique como ocorre a comunicação entre FastAPI, SQLAlchemy e PostgreSQL.
 
-> Sugira projetos práticos para aplicar os conceitos aprendidos.
+### Preparação para Entrevistas
+
+Gere perguntas de entrevista para desenvolvedor backend Python sobre este tema.
 
 ---
 
-# ✅ Conclusão
+# Conclusão
 
-O NotebookLM demonstrou ser uma excelente ferramenta para aprendizado guiado, permitindo organizar fontes, criar resumos, gerar questionamentos estratégicos e consolidar conhecimento de forma eficiente.
+A experiência com o NotebookLM mostrou que a ferramenta é mais útil quando utilizada como apoio ao raciocínio e não apenas como geradora de respostas.
 
-Este caderno temático servirá como material de consulta futura para desenvolvimento de APIs modernas com FastAPI.
+Ao concentrar documentações e materiais de referência em um único ambiente, foi possível obter explicações contextualizadas para dúvidas reais que surgiram durante o desenvolvimento da API bancária.
+
+O resultado foi um processo de estudo mais organizado e uma compreensão mais sólida dos conceitos envolvidos na construção de APIs modernas com FastAPI.
